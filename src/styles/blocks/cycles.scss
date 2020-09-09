@@ -1,0 +1,22 @@
+@for $i from 1 through 31 {
+  .calendar > div:nth-child(#{$i})::before {
+    content: "#{$i}";
+  }
+}
+
+$days: (
+  "tue": 1,
+  "wed": 2,
+  "thu": 3,
+  "fri": 4,
+  "sat": 5,
+  "sun": 6
+);
+
+$size: 101px;
+
+@each $day, $number in $days {
+  .calendar-#{$day} > div:first-child {
+    margin-left: $size * $number;
+  }
+}
